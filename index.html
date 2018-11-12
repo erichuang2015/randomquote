@@ -1,13 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>RandomQuoteApp</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#2196F3">
+    <title>Random Quote App</title>
+    <link rel="stylesheet" href="./src/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
 <body>
-  <h1>RandomQuoteApp</h1>
+    <div class="app">
+        <h1 class="title">Random Quote App</h1>
+        <div class="options">
+            <select id="category">
+                <option>Choose category...</option>
+                <option>movies</option>
+                <option>famous</option>
+            </select>
+            <button class="btn" id="quoteOfTheDay">Quote of the day</button>
+        </div>
+        <div class="quote">
+            <div class="text" id="text">
+            </div>
+            <div class="author" id="author">
+            </div>
+        </div>
+        <div class="controls">
+            <div class="links">
+                <a id="shareTwitter"><i class="fab fa-twitter"></i></a>
+                <a id="shareMail"><i class="fas fa-envelope"></i></a>
+                <a id="copy"><i class="fa fa-copy"></i></a>
+            </div>
+            <button class="btn" id="random">Random</button>  
+        </div>
+    </div>
+    <script src="./src/main.js"></script>
 </body>
 </html>
