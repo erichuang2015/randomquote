@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url(./fonts/Rubik.ttf);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  transition: background-color 0.5s linear;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+button {
+  transition: background-color 0.5s linear;
+  cursor: pointer;
+  padding: 10px 50px;
+  background: none;
+  border: none;
+}
+
+button:hover {
+  box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.2);
+}
+
+.app {
+  width: 500px;
+  max-width: 90%;
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 2px black;
+}
+
+.app .title {
+  font-family: Rubik, sans-serif;
+  transition: color 0.5s linear;
+  font-size: 40px;
+  padding-bottom: 10px;
+  color: #2196f3;
+}
+
+.app .options {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.app .options > * {
+  width: 48%;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  background: none;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.app button {
+  border-radius: 20px;
+  background-color: #2196f3;
+  color: white;
+}
+
+.app .options button {
+  border-radius: 5px;
+  border-bottom: 0;
+}
+
+.app .quote {
+  margin: 10px 0;
+}
+
+.app .quote .text {
+  padding: 10px;
+  font-size: 18px;
+  text-align: justify;
+  min-height: 70px;
+  max-height: 150px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.app .quote .author {
+  padding: 10px;
+  padding-top: 20px;
+  text-align: right;
+}
+
+.app .controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.app .controls .links a {
+  transition: color 0.5s linear;
+  cursor: pointer;
+  margin: 0 5px;
+  color: #2196f3;
+  font-size: 30px;
+}
+
+.app .controls .links a:hover {
+  filter: brightness(85%);
+}
+
+.app .loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media only screen and (max-width: 450px) {
+  .app .title {
+    font-size: 30px;
+  }
+
+  .app .options {
+    flex-direction: column;
+  }
+
+  .app .options > * {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .app .title {
+    font-size: 25px;
+  }
+
+  .app .controls {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
