@@ -37,7 +37,7 @@ if (navigator.onLine){
     });
   
   const localQuoteOfTheDay = JSON.parse(localStorage.getItem('quoteOfTheDay'));
-  if (localQuoteOfTheDay && 
+  if (!localQuoteOfTheDay || 
       new Date(localQuoteOfTheDay.date).toDateString() !== new Date().toDateString() ){
     fetch('https://quotes.rest/qod')
       .then(response => {
