@@ -67,7 +67,9 @@ document.getElementById('shareTwitter').addEventListener('click', () => {
 document.getElementById('shareMail').addEventListener('click', () => {
   const quote = document.getElementById('text').innerHTML;
   const author = document.getElementById('author').innerHTML;
-  location.href = `mailto:?subject=Random Quote&body=${quote + ' ' + author}`;
+  let url = `mailto:?subject=Random Quote&body=${quote + ' ' + author}`;
+  url = url.replace(/,|;/g,'%2c');
+  location.href = url;
 });
 document.getElementById('copy').addEventListener('click', () =>{
   const quote = document.getElementById('text').innerHTML;
