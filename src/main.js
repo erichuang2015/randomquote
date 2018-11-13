@@ -40,8 +40,9 @@ if (navigator.onLine){
   if (localQuoteOfTheDay && 
       new Date(localQuoteOfTheDay.date).toDateString() !== new Date().toDateString() ){
     fetch('https://quotes.rest/qod')
-      .then(response => response.json())
-      .then(json => {
+      .then(response => {
+        if (response.status === 200) return response.json();
+      }).then(json => {
         const quote = json.contents.quotes[0];
         quote.date = new Date().toLocaleDateString();
         localStorage.setItem('quoteOfTheDay', JSON.stringify(quote));
@@ -93,7 +94,14 @@ function getQuoteOfTheDay (){
   document.getElementById('text').style.overflow = 'hidden';
   document.getElementById('author').innerHTML = '';
   fetch('https://quotes.rest/qod')
-    .then(response => response.json())
+    .then(response => {
+      if (response.status !== 200){
+        setQuote({
+          author: '',
+          quote: 'check connection'
+        });
+      } else return response.json(); 
+    })
     .then(json => {
       const quote = json.contents.quotes[0];
       setQuote({
@@ -133,7 +141,14 @@ function getRandomQuote (category){
       'Accept': 'application/json'
     }
   })
-    .then(response => response.json())
+    .then(response => {
+      if (response.status !== 200){
+        setQuote({
+          author: '',
+          quote: 'check connection'
+        });
+      } else return response.json();
+    })
     .then(json => {
       randomColor();
       setQuote(json[0]);
