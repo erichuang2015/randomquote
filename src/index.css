@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: Rubik;
-  src: url(./fonts/Rubik.ttf);
-}
-
 body {
   min-height: 100vh;
   display: flex;
