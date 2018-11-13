@@ -36,14 +36,17 @@ if (navigator.onLine){
       localStorage.setItem('quotes', JSON.stringify(quotes));
     });
   
-  fetch('https://quotes.rest/qod')
-    .then(response => response.json())
-    .then(json => {
-      const quote = json.contents.quotes[0];
-      quote.date = new Date().toLocaleDateString();
-      localStorage.setItem('quoteOfTheDay', JSON.stringify(quote));
-    });
-  
+  const localQuoteOfTheDay = JSON.parse(localStorage.getItem('quoteOfTheDay'));
+  if (localQuoteOfTheDay && 
+      new Date(localQuoteOfTheDay.date).toDateString() !== new Date().toDateString() ){
+    fetch('https://quotes.rest/qod')
+      .then(response => response.json())
+      .then(json => {
+        const quote = json.contents.quotes[0];
+        quote.date = new Date().toLocaleDateString();
+        localStorage.setItem('quoteOfTheDay', JSON.stringify(quote));
+      });
+  }
 }
 
 getQuoteOfTheDay();
