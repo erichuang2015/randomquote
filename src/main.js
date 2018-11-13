@@ -110,7 +110,8 @@ function getQuoteOfTheDay (){
       });
       randomColor();
     })
-    .catch(() =>{
+    .catch(() => {
+      randomColor();
       const quote = JSON.parse(localStorage.getItem('quoteOfTheDay'));
       if (quote){
         setQuote({
@@ -154,6 +155,7 @@ function getRandomQuote (category){
       setQuote(json[0]);
     })
     .catch(() => {
+      randomColor();
       let quotes = JSON.parse(localStorage.getItem('quotes'));
       if (quotes){
         if (category && category !== 'Choose category...') {
