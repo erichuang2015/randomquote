@@ -2,11 +2,10 @@ self.addEventListener('install', function (e) {
   e.waitUntil(
     caches.open('randomquote').then(function (cache) {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/src/main.js',
-        '/src/index.css',
-        'https://use.fontawesome.com/releases/v5.4.1/css/all.css'
+        './',
+        './index.html',
+        './src/main.js',
+        './src/index.css'
       ]);
     })
   );
